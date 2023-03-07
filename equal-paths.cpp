@@ -12,7 +12,15 @@ using namespace std;
 
 bool equalPaths(Node * root)
 {
+    if(root == NULL) return true;
     // Add your code below
-
+    int leftDepth = 0, rightDepth = 0;
+    Node* r = root->right;
+    Node* l = root->left;
+    if(r && (r->left || r->right)) rightDepth = 1;
+    if(l && (l->left || l->right)) leftDepth =1;
+    if(leftDepth != rightDepth) return false;
+    
+    return equalPaths(r) && equalPaths(l);
 }
 
