@@ -9,14 +9,19 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     // Binary Search Tree tests
-    BinarySearchTree<char,int> bt;
-    bt.insert(std::make_pair('a',1));
-    bt.insert(std::make_pair('b',2));
-    
+    BinarySearchTree<int, double> bt;
+	bt.insert(std::make_pair(2, 1.0));
+	bt.insert(std::make_pair(1, 1.0));
+	bt.insert(std::make_pair(3, 1.0));
+	bt.remove(2);
+
     cout << "Binary Search Tree contents:" << endl;
-    for(BinarySearchTree<char,int>::iterator it = bt.begin(); it != bt.end(); ++it) {
+    
+    for(BinarySearchTree<int,double>::iterator it = bt.begin(); it != bt.end(); ++it) {
         cout << it->first << " " << it->second << endl;
+				
     }
+		
     if(bt.find('b') != bt.end()) {
         cout << "Found b" << endl;
     }
@@ -25,7 +30,7 @@ int main(int argc, char *argv[])
     }
     cout << "Erasing b" << endl;
     bt.remove('b');
-
+    //bt.print();
     // AVL Tree Tests
     AVLTree<char,int> at;
     at.insert(std::make_pair('a',1));
